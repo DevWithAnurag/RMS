@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+
+.nav-center{
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+nav {
+    padding: 15px;
+    gap:2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.264);
+    border-radius: 20px;
+    backdrop-filter: blur(31px);
+}
+.nav-item{
+    font-family: "Imprima", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+
+.nav-btn > button{
+    font-size: 20px;
+width: 7rem;
+height: 3rem;
+border-radius: 20px;
+border:none;
+cursor: pointer;
+}
+
+.cart-img{
+position: absolute;
+right: 40px;
+cursor: pointer;
+}
+

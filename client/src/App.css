@@ -1,0 +1,12 @@
+.ellipse{
+  position: absolute;
+  right: 0;
+}
+
+.ellipse>img{
+width: 50rem;
+}
+
+.ellipse-round > img{
+  position: absolute;
+}
