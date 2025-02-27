@@ -1,0 +1,51 @@
+.UserMenu-con{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
+
+
+.userMenu-item{
+    width: 339px;
+    height: 316px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 42px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.userMenu-item:hover{
+    transform: scale(1.1);
+}
+
+.userMenu-item > .img >img {
+    /* width: 338px;
+    height: 209px; */
+    border-radius: 30px;
+  object-fit: cover;
+}
+.UserMenu-con  .btn {
+    display: flex;
+    gap: 10px;
+
+}
+
+.UserMenu-con .btn >button {
+    cursor: pointer;
+    width: 127px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background: #14979F;
+    transition: all 0.2s;
+}
+
+.UserMenu-con .btn >button:hover {
+transform: scale(1.1);
+}
