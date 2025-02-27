@@ -1,8 +1,7 @@
 .UserMenu-con{
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;   
 }
 
 
@@ -10,6 +9,8 @@
     width: 339px;
     height: 316px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: #ffffff40;
+    backdrop-filter: blur(44px);
     display: flex;
     flex-direction: column;
     justify-content: center;
