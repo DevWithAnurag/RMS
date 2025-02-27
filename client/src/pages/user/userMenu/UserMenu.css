@@ -30,6 +30,7 @@
     border-radius: 30px;
   object-fit: cover;
 }
+
 .UserMenu-con  .btn {
     display: flex;
     gap: 10px;
