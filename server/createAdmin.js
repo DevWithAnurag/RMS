@@ -16,8 +16,6 @@ const createAdmin = async () => {
       process.exit(1);
     }
 
-    const hashedPassword = await bcrypt.hash("admin123", 10);
-
     const admin = new Admin({
       email: "admin@example.com",
       password: "admin123",

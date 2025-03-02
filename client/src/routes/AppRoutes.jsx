@@ -15,7 +15,8 @@ const AppRoutes = () => {
                 <Route path="/" element={<Layout />} />
                 <Route path="/login/admin" element={<AdminLogin />} />
                 <Route path='/menu' element={<UserMenu />} />
-                {/* <Route path="/admin/menu" element={<AdminMenuList />} /> */}
+
+                {/* ProtectedRoutes  */}
                 <Route
                     path="/dashboard"
                     element={

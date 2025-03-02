@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+footer{
+    margin-top: 20px;
+    display: flex;
+    width: 100vw;
+    background: #08575c;
+    border-top-left-radius: 204px;
+    border-top-right-radius: 204px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+footer > .img {
+    width: 245px;
+}
+
+
+footer > .footer-item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+footer > .footer-item  > .heading{
+    color: white;
+}
+footer > .footer-item > .item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

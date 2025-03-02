@@ -25,36 +25,40 @@ const UserMenu = () => {
     };
 
     return (
-        <div>
-            <h2>Our Menu</h2>
-            <div className="UserMenu-con">
-                {menuItems.map((item) => (
-                    <div
-                        key={item._id}
-                        className="userMenu-item"
-                    >
-                        <div className="img">
-                            <img
-                                src={item.image}
-                                alt={item.name}
-                                style={{
-                                    width: "311px",
-                                    height: "203px",
-                                    objectFit: "cover"
-                                }}
-                            />
+        <>
+            <div className="UserMenu">
+                <div className="heading">
+                    <h1>OUR MENU</h1>
+                </div>
+                <div className="UserMenu-con">
+                    {menuItems.map((item) => (
+                        <div
+                            key={item._id}
+                            className="userMenu-item"
+                        >
+                            <div className="img">
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    style={{
+                                        width: "311px",
+                                        height: "203px",
+                                        objectFit: "cover"
+                                    }}
+                                />
+                            </div>
+                            <h3>{item.name}</h3>
+                            <p>Price: ₹ {item.price} /-Only </p>
+                            <p>Ready in: {item.readyTime} minutes</p>
+                            <div className="btn">
+                                <button onClick={() => handleOrder(item)}>Order Now</button>
+                                <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                            </div>
                         </div>
-                        <h3>{item.name}</h3>
-                        <p>Price: ₹ {item.price} /-Only </p>
-                        <p>Ready in: {item.readyTime} minutes</p>
-                        <div className="btn">
-                            <button onClick={() => handleOrder(item)}>Order Now</button>
-                            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
