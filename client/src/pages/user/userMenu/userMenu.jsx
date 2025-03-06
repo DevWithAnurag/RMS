@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import './UserMenu.css'
+import { CartContext } from "../../context/CartContext";
+import './UserMenu.css';
+
 const UserMenu = () => {
     const [menuItems, setMenuItems] = useState([]);
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -16,49 +19,44 @@ const UserMenu = () => {
         fetchMenu();
     }, []);
 
-    const handleOrder = (item) => {
-        alert(`Ordering ${item.name}`);
-    };
-
     const handleAddToCart = (item) => {
+        if (!addToCart) {
+            console.error("addToCart is not defined");
+            return;
+        }
+        addToCart(item);
         alert(`${item.name} added to cart`);
     };
 
     return (
-        <>
-            <div className="UserMenu">
-                <div className="heading">
-                    <h1>OUR MENU</h1>
-                </div>
-                <div className="UserMenu-con">
-                    {menuItems.map((item) => (
-                        <div
-                            key={item._id}
-                            className="userMenu-item"
-                        >
+        <div className="UserMenu">
+            <div className="heading">
+                <h1>OUR MENU</h1>
+            </div>
+            <div className="UserMenu-con">
+                {menuItems.length > 0 ? (
+                    menuItems.map((item) => (
+                        <div key={item._id} className="userMenu-item">
                             <div className="img">
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    style={{
-                                        width: "311px",
-                                        height: "203px",
-                                        objectFit: "cover"
-                                    }}
+                                    style={{ width: "311px", height: "203px", objectFit: "cover" }}
                                 />
                             </div>
                             <h3>{item.name}</h3>
                             <p>Price: ₹ {item.price} /-Only </p>
                             <p>Ready in: {item.readyTime} minutes</p>
                             <div className="btn">
-                                <button onClick={() => handleOrder(item)}>Order Now</button>
                                 <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
                             </div>
                         </div>
-                    ))}
-                </div>
+                    ))
+                ) : (
+                    <p>Loading menu...</p>
+                )}
             </div>
-        </>
+        </div>
     );
 };
 

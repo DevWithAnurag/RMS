@@ -23,7 +23,7 @@ nav {
     font-size: 1.5rem;
 }
 
-.nav-btn > button{
+.nav-btn > a>  button{
     font-size: 20px;
 width: 7rem;
 height: 3rem;

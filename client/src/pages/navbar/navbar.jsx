@@ -9,11 +9,11 @@ const navbar = () => {
                     <div className=" nav-item contact-us">Contact Us </div>
                     <div className=" nav-item gallery">Gallery</div>
                     <div className=" nav-item About-us">About Us </div>
-                    <div className=" nav-item nav-btn"><button>Login</button></div>
+                    <div className=" nav-item nav-btn"><a href="/login"><button>Login</button></a></div>
                 </nav>
 
                 <div className="cart-img">
-                    <img src="src/assets/cart.png" alt="cart" width={50} />
+                    <a href="/user/cart">  <img src="src/assets/cart.png" alt="cart" width={50} /></a>
                 </div>
             </div>
 
