@@ -1,0 +1,67 @@
+.login-container {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    width: 400px;
+    height: 353px;
+    background: #ffffff7d;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 20px;
+}
+
+.login-container>.heading {}
+
+.login-container>.email-container  , .login-container>.password-container {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-container>.email-container > input , .login-container>.password-container  > input  {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.login-container > .btn  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container > .btn >button {
+    cursor: pointer;
+    width: 127px;
+    height:40px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background: #14979F;
+    transition: all 0.2s;
+}
+
+.login-container > .btn >button:hover {
+    transform: scale(1.1);
+    }
+
+
+.login-container  > .heading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }

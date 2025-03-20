@@ -9,7 +9,7 @@ const content = () => {
                         <h1>Order <span>favorite food</span> </h1>
                     </div>
                     <div className="para"><p>
-                        id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum</p></div>
+                        Indulge in a delightful dining experience! Enjoy a variety of delicious meals crafted with fresh ingredients and rich flavors. From savory dishes to sweet treats, we bring you the best. Order now and savor every bite!</p></div>
                     <div className="btn">
                         <button>Explore More</button>
                     </div>

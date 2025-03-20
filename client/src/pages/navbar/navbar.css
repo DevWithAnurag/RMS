@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
 
-.nav-center{
+.nav-center {
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
+
 nav {
     padding: 15px;
-    gap:2rem;
+    gap: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,25 +17,40 @@ nav {
     border-radius: 20px;
     backdrop-filter: blur(31px);
 }
-.nav-item{
+
+.nav-item {
     font-family: "Imprima", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 1.5rem;
 }
 
-.nav-btn > a>  button{
+.nav-btn>a>button {
     font-size: 20px;
-width: 7rem;
-height: 3rem;
-border-radius: 20px;
-border:none;
-cursor: pointer;
+    width: 7rem;
+    height: 3rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
 }
 
-.cart-img{
-position: absolute;
-right: 40px;
-cursor: pointer;
+.cart-img {
+    position: absolute;
+    right: 40px;
+    cursor: pointer;
 }
 
+
+
+
+/* Logout Button */
+.logout-btn {
+    font-size: 20px;
+    width: 7rem;
+    height: 3rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #147980;
+    color: white;
+}

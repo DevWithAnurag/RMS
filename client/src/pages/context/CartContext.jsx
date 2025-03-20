@@ -1,20 +1,21 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { AuthContext } from "./AuthContext"; // ✅ Import AuthContext
+import { AuthContext } from "./AuthContext";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const { user } = useContext(AuthContext);
-    const userName = localStorage.getItem("username"); // ✅ Fetch username from localStorage
 
+    // Fetch username from localStorage
+    const getUsername = () => localStorage.getItem("username");
 
-    //fetching cart Item
+    // Fetch cart items
     const fetchCart = async () => {
         try {
-            const username = localStorage.getItem("username"); // ✅ Fetch ObjectId
-            console.log("Fetching cart for username:", username);
+            const username = getUsername();
+            if (!username) return;
 
             const response = await axios.get(`http://localhost:5000/api/cart/${username}`);
             setCart(response.data.items || []);
@@ -23,15 +24,10 @@ const CartProvider = ({ children }) => {
         }
     };
 
-    //  Fetch cart when `userName` changes
-    useEffect(() => {
-        fetchCart();
-    }, [userName]);
-
-    //  Add Item to Cart
+    // Add item to cart
     const addToCart = async (item) => {
         try {
-            const username = localStorage.getItem("username");
+            const username = getUsername();
             if (!username) {
                 alert("Please login to add items to the cart");
                 return;
@@ -44,16 +40,35 @@ const CartProvider = ({ children }) => {
                     name: item.name,
                     price: item.price,
                     quantity: 1,
-                    image: item.image, // ✅ Ensure image is sent
+                    image: item.image,
                 },
             });
+
             setCart(response.data.items);
         } catch (error) {
             console.error("Error adding to cart:", error);
         }
     };
+
+    // Delete item from cart
+    const deleteFromCart = async (itemId) => {
+        try {
+            const username = getUsername();
+            if (!username) return;
+
+            await axios.delete(`http://localhost:5000/api/cart/${username}/${itemId}`);
+            setCart(cart.filter((item) => item.itemId !== itemId));
+        } catch (error) {
+            console.error("Error deleting item from cart:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCart();
+    }, [user]);
+
     return (
-        <CartContext.Provider value={{ cart, setCart, fetchCart, addToCart }}>
+        <CartContext.Provider value={{ cart, fetchCart, addToCart, deleteFromCart }}>
             {children}
         </CartContext.Provider>
     );

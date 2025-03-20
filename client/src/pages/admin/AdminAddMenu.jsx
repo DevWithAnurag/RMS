@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminMenuList from './AdminMenuList'
+import './adminMenu.css'
 const AdminAddMenu = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -120,31 +121,26 @@ const AdminAddMenu = () => {
             <div className="show-Menu">
                 <h2>Admin Menu List</h2>
                 {message && <p>{message}</p>}
-                {menuItems.map((item) => (
-                    <div
-                        key={item._id}
-                        style={{
-                            border: "1px solid #ddd",
-                            padding: "10px",
-                            margin: "10px 0",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "10px",
-                        }}
-                    >
-                        <img
-                            src={item.image}
-                            alt={item.name}
-                            style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                        />
-                        <div>
-                            <h3>{item.name}</h3>
-                            <p>Price: Rs. {item.price}</p>
-                            <p>Ready in: {item.readyTime} minutes</p>
+                <div className="card-container">
+                    {menuItems.map((item) => (
+                        <div key={item._id} className="card"  >
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                            />
+                            <div className="item-content">
+                                <h3>{item.name}</h3>
+                                <p>Price: Rs. {item.price}</p>
+                                <p>Ready in: {item.readyTime} minutes</p>
+                            </div>
+                            <div className="btn">
+                                <button onClick={() => handleDelete(item._id)}>Delete</button>
+                            </div>
+
                         </div>
-                        <button onClick={() => handleDelete(item._id)}>Delete</button>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </>
 

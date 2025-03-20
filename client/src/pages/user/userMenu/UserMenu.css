@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-.UserMenu-con{
+.UserMenu-con {
     display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
+    gap: 20px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
-.UserMenu > .heading > h1{
+.UserMenu>.header {
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.UserMenu>.header>.heading>h1 {
     width: 264px;
-    color: white ;
+    color: white;
     background: #08575c;
     padding: 20px;
     margin-top: 20px;
@@ -21,11 +28,36 @@
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-      font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
-.userMenu-item{
+
+.UserMenu>.header>.search-bar {
+    position: relative;
+}
+
+
+
+.UserMenu>.header>.search-bar>input {
+    width: 200px;
+    height: 47px;
+    text-align: center;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.UserMenu>.header>.search-bar>img {
+    position: absolute;
+    z-index: 99;
+    top: 14px;
+    left: 10px;
+}
+
+
+.userMenu-item {
     width: 339px;
     height: 316px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -40,24 +72,24 @@
     transition: all 0.2s;
 }
 
-.userMenu-item:hover{
+.userMenu-item:hover {
     transform: scale(1.1);
 }
 
-.userMenu-item > .img >img {
+.userMenu-item>.img>img {
     /* width: 338px;
     height: 209px; */
     border-radius: 30px;
-  object-fit: cover;
+    object-fit: cover;
 }
 
-.UserMenu-con  .btn {
+.UserMenu-con .btn {
     display: flex;
     gap: 10px;
 
 }
 
-.UserMenu-con .btn >button {
+.UserMenu-con .btn>button {
     cursor: pointer;
     width: 127px;
     height: 30px;
@@ -65,9 +97,9 @@
     border: none;
     color: white;
     background: #14979F;
-    transition: all 0.2s;
+    transition: all 0.1s linear;
 }
 
-.UserMenu-con .btn >button:hover {
-transform: scale(1.1);
+.UserMenu-con .btn>button:hover {
+    transform: scale(1.1);
 }

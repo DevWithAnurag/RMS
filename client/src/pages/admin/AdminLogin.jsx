@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import './AdminLoing.css'
 
 const AdminLogin = () => {
     const [email, setEmail] = useState("");
@@ -40,11 +41,14 @@ const AdminLogin = () => {
 
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
-                <h2 className="text-2xl font-semibold mb-4">Admin Login</h2>
-                {error && <p className="text-red-500">{error}</p>}
+        <>
+            <div className="admin-container">
+                <h2 className="">Admin Login</h2>
+                {error && <p className="">{error}</p>}
+
                 <form onSubmit={handleLogin}>
+
+
                     <input
                         type="email"
                         placeholder="Email"
@@ -53,6 +57,8 @@ const AdminLogin = () => {
                         className="w-full p-2 mb-4 border rounded"
                         required
                     />
+
+
                     <input
                         type="password"
                         placeholder="Password"
@@ -61,6 +67,7 @@ const AdminLogin = () => {
                         className="w-full p-2 mb-4 border rounded"
                         required
                     />
+
                     <button
                         type="submit"
                         className="w-full bg-blue-500 text-white py-2 rounded"
@@ -68,9 +75,13 @@ const AdminLogin = () => {
                     >
                         {loading ? "Logging in..." : "Login"}
                     </button>
+
+
                 </form>
+
+
             </div>
-        </div>
+        </>
     );
 };
 

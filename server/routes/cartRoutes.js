@@ -46,4 +46,24 @@ router.get("/:username", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+// Delete item from cart
+router.delete("/:username/:itemId", async (req, res) => {
+  try {
+    const { username, itemId } = req.params;
+    const cart = await Cart.findOne({ username });
+
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+
+    cart.items = cart.items.filter((item) => item.itemId.toString() !== itemId);
+    await cart.save();
+
+    res.json({ message: "Item removed from cart", items: cart.items });
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting item from cart" });
+  }
+});
+
 export default router;

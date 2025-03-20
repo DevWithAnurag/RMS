@@ -3,9 +3,12 @@ import axios from "axios";
 import { CartContext } from "../../context/CartContext";
 import './UserMenu.css';
 
+
 const UserMenu = () => {
     const [menuItems, setMenuItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState(""); // State for search input
     const { addToCart } = useContext(CartContext);
+
 
     useEffect(() => {
         const fetchMenu = async () => {
@@ -28,14 +31,38 @@ const UserMenu = () => {
         alert(`${item.name} added to cart`);
     };
 
+    // Filter menu items based on search query
+    const filteredMenu = menuItems.filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div className="UserMenu">
-            <div className="heading">
-                <h1>OUR MENU</h1>
+            <div className="header">
+
+                <div className="heading">
+                    <h1>OUR MENU</h1>
+                </div>
+
+                <div className="search-bar">
+                    <img src="src\assets\search.png" alt=" Search Here" width={"20px"} />
+                    <input
+                        type="text"
+                        placeholder="Search for a dish..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {searchQuery && (
+                        <button className="clear-btn" onClick={() => setSearchQuery("")}>✖</button>
+                    )}
+                </div>
+
             </div>
+
+
             <div className="UserMenu-con">
-                {menuItems.length > 0 ? (
-                    menuItems.map((item) => (
+                {filteredMenu.length > 0 ? (
+                    filteredMenu.map((item) => (
                         <div key={item._id} className="userMenu-item">
                             <div className="img">
                                 <img
@@ -53,7 +80,7 @@ const UserMenu = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Loading menu...</p>
+                    <p>No matching dishes found...</p>
                 )}
             </div>
         </div>
